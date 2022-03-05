@@ -1,1 +1,1 @@
-<h1>Stundenplan für VInf-Studenten der HAW-Hof</h1>
+<h1>Stundenplan für VInf-Studenten der HAW/HföD des Jahrgangs 20/23</h1>
