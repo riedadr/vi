@@ -6,3 +6,9 @@
   <li>Mantine</li>
   <li>Font Awesome</li>
 </ul>
+
+
+<h3>Hinweise</h3>
+<ul>
+  <li>Alle Daten und Informationen sind öffentlich auf der <a href="https://hof-university.de" target="_blank" rel="noreferrer">Webseite der Hochschule Hof</a> einsehbar</li>
+</ul>
