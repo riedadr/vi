@@ -11,6 +11,7 @@ import {
     useMantineTheme,
     Button,
     Select,
+    ScrollArea,
 } from "@mantine/core";
 import hawLogo from "./images/HAW-HOF.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -69,35 +70,36 @@ function App() {
                         </Navbar.Section>
 
                         {/* Grow section will take all available space that is not taken by first and last sections */}
-                        <Navbar.Section grow>
-                            <h3 className="mb-2">Dozenten</h3>
+                        <h3 className="mb-2">Dozenten</h3>
+                        <Navbar.Section
+                            grow
+                            component={ScrollArea}
+                            scrollHideDelay={200}
+                            ml={-10}
+                            mr={-16}
+                            sx={{ paddingLeft: 10, paddingRight: 10 }}
+                        >
                             <Dozenten />
                         </Navbar.Section>
 
                         {/* Last section with normal height (depends on section content) */}
-                        <Navbar.Section>
-                            <a
+                        <Navbar.Section className="w-full flex justify-between mt-4">
+                            <Button
+                                color="orange"
+                                component="a"
                                 href="https://github.com/riedadr/vi"
                                 target="_blank"
-                                rel="noreferrer"
+                                leftIcon={<FontAwesomeIcon icon={faGithub} />}
                             >
-                                <Button
-                                    leftIcon={
-                                        <FontAwesomeIcon icon={faGithub} />
-                                    }
-                                >
-                                    GitHub
-                                </Button>
-                            </a>
-                            <a href="mailto:adrian.riedel@hof-university.de">
-                                <Button
-                                    leftIcon={
-                                        <FontAwesomeIcon icon={faEnvelope} />
-                                    }
-                                >
-                                    E-Mail
-                                </Button>
-                            </a>
+                                GitHub
+                            </Button>
+                            <Button
+                                component="a"
+                                href="mailto:adrian.riedel@hof-university.de"
+                                leftIcon={<FontAwesomeIcon icon={faEnvelope} />}
+                            >
+                                E-Mail
+                            </Button>
                         </Navbar.Section>
                     </Navbar>
                 }

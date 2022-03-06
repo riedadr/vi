@@ -10,7 +10,21 @@
         drop-shadow(0px -1px 0px var(--outline));
 }
 
-.profile-pic {
+.dozent {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.dozent .mantine-Button-root {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.dozent .mantine-Button-inner {
+    justify-content: left;
+}
+
+.dozent .profile-pic {
     width: 2rem;
     height: 2rem;
     border-radius: 100%;
@@ -32,7 +46,7 @@
 }
 
 .stundenTabelle div {
-    background-color: theme("colors.zinc.900");
+    background-color: theme("colors.mantineBg");
     border-radius: 0.25rem;
     padding: 0.5rem;
 }

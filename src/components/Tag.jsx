@@ -51,7 +51,7 @@ export default function Tag(props) {
                     return (
                         <li key={index}>
                             <p>{getTime(item.stunde)}</p>
-                            <div className="bg-zinc-900 rounded p-2">
+                            <div className="bg-mantineBg rounded p-2">
                                 <h2 className="flex justify-between">
                                     {item.titel}
                                     {item.moodle && (
