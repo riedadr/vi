@@ -1,38 +1,53 @@
-.App {
-  text-align: center;
+#hawLogo {
+    --outline: white;
+    filter: drop-shadow(1px 0px 0px var(--outline))
+        drop-shadow(-1px 0px 0px var(--outline))
+        drop-shadow(0px 1px 0px var(--outline))
+        drop-shadow(0px -1px 0px var(--outline));
+    -webkit-filter: drop-shadow(1px 0px 0px var(--outline))
+        drop-shadow(-1px 0px 0px var(--outline))
+        drop-shadow(0px 1px 0px var(--outline))
+        drop-shadow(0px -1px 0px var(--outline));
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.profile-pic {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    object-fit: cover;
+    object-position: 0 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#stundenListe {
+    height: calc(100vh - (70px + 16px + 40px + 10px));
+    padding-bottom: 16px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.stundenTabelle {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 0.5rem;
+    grid-template-columns: auto repeat(5, 1fr);
+    grid-template-rows: auto repeat(5, 1fr);
 }
 
-.App-link {
-  color: #61dafb;
+.stundenTabelle div {
+    background-color: theme("colors.zinc.900");
+    border-radius: 0.25rem;
+    padding: 0.5rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@media only screen and (max-width: 1200px) {
+    .stundenTabelle {
+        display: none;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .stundenListe {
+        display: none;
+    }
+}
+
+#hidden {
+    display: none;
 }

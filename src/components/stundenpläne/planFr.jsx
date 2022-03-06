@@ -1,0 +1,58 @@
+const alle = ["gr1", "gr2", "gr3"];
+
+export const planFr = [
+    {
+        stunde: 1,
+        titel: "Betriebssyteme II - Ü2",
+        kurz: "BS2 - Ü2",
+        raum: "D242",
+        dozent: "Prof. Dr. Tilo Müller",
+        moodle: "",
+        gruppe: "gr2",
+    },
+    {
+        stunde: 2,
+        titel: "Betriebssyteme II - Ü3",
+        kurz: "BS2 - Ü3",
+        raum: "D242",
+        dozent: "Prof. Dr. Tilo Müller",
+        moodle: "",
+        gruppe: "gr3",
+    },
+    {
+        stunde: 2,
+        titel: "Geschäftsprozessmodellierung - Ü1",
+        kurz: "GPM - Ü1",
+        raum: "G028/029",
+        dozent: "Prof. Dr. Florian Kupsch",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4370",
+        gruppe: "gr1",
+    },
+    {
+        stunde: 3,
+        titel: "Geschäftsprozessmodellierung - Ü3",
+        kurz: "GPM - Ü3",
+        raum: "G028/029",
+        dozent: "Prof. Dr. Florian Kupsch",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4370",
+        gruppe: "gr3",
+    },
+    {
+        stunde: 4,
+        titel: "",
+        kurz: "",
+        raum: "",
+        dozent: "",
+        moodle: "",
+        gruppe: alle,
+    },
+    {
+        stunde: 5,
+        titel: "",
+        kurz: "",
+        raum: "",
+        dozent: "",
+        moodle: "",
+        gruppe: alle,
+    },
+]
