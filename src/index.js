@@ -6,13 +6,16 @@ import { MantineProvider } from "@mantine/core";
 import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
 import reportWebVitals from "./reportWebVitals";
 import { GroupProvider } from "./contexts/gruppe";
+import { NotificationsProvider } from "@mantine/notifications";
 
 ReactDOM.render(
     <React.StrictMode>
         <MantineProvider theme={{ colorScheme: "dark" }}>
-            <GroupProvider>
-                <App />
-            </GroupProvider>
+            <NotificationsProvider>
+                <GroupProvider>
+                    <App />
+                </GroupProvider>
+            </NotificationsProvider>
         </MantineProvider>
     </React.StrictMode>,
     document.getElementById("root")

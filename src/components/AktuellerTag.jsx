@@ -1,11 +1,15 @@
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
+import { Timeline, TimelineItem } from "@mantine/core";
+import React, { useState, useEffect } from "react";
 import { useGroup } from "../contexts/gruppe";
 
-export default function Tag(props) {
+export default function AktuellerTag(props) {
+    const [stunden, setStunden] = useState([]);
     const { currentGroup } = useGroup();
+    const [active, setActive] = useState(-1);
 
+    //Ausgeben der Zeiten anhand der Stundenzahl
     const getTime = (stunde) => {
         let start = "";
         let ende = "";
@@ -38,21 +42,52 @@ export default function Tag(props) {
                 break;
         }
 
-        return stunde + ". Stunde (" + start + " - " + ende + ")";
+        return start + " - " + ende;
     };
+
+    useEffect(() => {
+        progress(stunden);
+    }, []);
+
+    //markiert die aktuelle und bisherigen Stunden als besucht
+    const progress = (stdArr) => {
+        let now = new Date();
+        let weekday = now.getDay();
+
+        //Vergleich, ob heute der Tag ist, der angezeigt wird
+        if (weekday === props.weekday) {
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let time = h * 60 + m;
+
+            let aktStunde = -1;
+            if (time > 0 && time <= 570) aktStunde = 1;
+            if (time > 570 && time <= 675) aktStunde = 2;
+            if (time > 675 && time <= 780) aktStunde = 3;
+            if (time > 780 && time <= 930) aktStunde = 4;
+            if (time > 930) aktStunde = 5;
+
+            let fortschritt = stdArr.indexOf(aktStunde);
+            setActive(fortschritt);
+        }
+    };
+
     return (
-        <ul className="grid gap-2">
+        <Timeline active={active} bulletSize={24} lineWidth={2}>
             {props.list.map((item, index) => {
                 if (
                     item.titel.length !== 0 &&
                     (props.showAll || item.gruppe.includes(currentGroup))
                 ) {
+                    stunden.push(item.stunde);
                     return (
-                        <li key={index}>
+                        <TimelineItem key={index} bullet={item.stunde}>
                             <p>{getTime(item.stunde)}</p>
                             <div className="bg-mantineBg rounded p-2">
                                 <h2 className="flex justify-between">
-                                    <span className="text-mantineAcc">{item.titel}</span>
+                                    <span className="text-mantineAcc">
+                                        {item.titel}
+                                    </span>
                                     {item.moodle && (
                                         <a
                                             href={item.moodle}
@@ -74,10 +109,10 @@ export default function Tag(props) {
                                     </span>
                                 </p>
                             </div>
-                        </li>
+                        </TimelineItem>
                     );
                 }
             })}
-        </ul>
+        </Timeline>
     );
 }

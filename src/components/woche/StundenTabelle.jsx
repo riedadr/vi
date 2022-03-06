@@ -8,6 +8,7 @@ import { planFr } from "../stundenpläne/planFr";
 import { planMi } from "../stundenpläne/planMi";
 import { planMo } from "../stundenpläne/planMo";
 
+//? Gibt die Stunden der Woche als Tabelle aus (für große Bildschirme)
 export default function StundenTabelle() {
     return (
         <div className="stundenTabelle">
@@ -77,45 +78,49 @@ export default function StundenTabelle() {
 }
 
 function Spalte(props) {
-    const { currentGroup } = useGroup();
-
-    //TODO donnerstag 3. stunde gr1 wird iwie von gr2 überschrieben und dann nicht angezeigt. am freitag das gleiches. wenn ein feld bereits beschrieben wurde, darf es nicht mehr überschrieben werden.
-
     return (
         <>
             {props.list.map((item, index) => {
-                return (
-                    <div
-                        key={index}
-                        id={
-                            item.gruppe.includes(currentGroup) &&
-                            item.titel.length > 0
-                                ? "show"
-                                : "hidden"
-                        }
-                        style={{
-                            gridRow: item.stunde + 1,
-                            gridColumn: props.col + 1,
-                        }}
-                    >
-                        <h2 className="flex justify-between">
-                            {item.kurz}
-
-                            {item.moodle && (
-                                <a
-                                    href={item.moodle}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
-                                    <FontAwesomeIcon icon={faLink} />
-                                </a>
-                            )}
-                        </h2>
-                        <p>{item.raum}</p>
-                        <p>{item.dozent}</p>
-                    </div>
-                );
+                return <Fach item={item} key={index} col={props.col} />;
             })}
         </>
+    );
+}
+
+function Fach(props) {
+    const { currentGroup } = useGroup();
+
+    return (
+        <div
+            id={
+                props.item.gruppe.includes(currentGroup) &&
+                props.item.titel.length > 0
+                    ? "show"
+                    : "hidden"
+            }
+            style={{
+                gridRow: props.item.stunde + 1,
+                gridColumn: props.col + 1,
+            }}
+        >
+            <h2 className="flex justify-between">
+                <span className="text-mantineAcc">
+                    {props.item.kurz}{" "}
+                    
+                </span>
+
+                {props.item.moodle && (
+                    <a
+                        href={props.item.moodle}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        <FontAwesomeIcon icon={faLink} />
+                    </a>
+                )}
+            </h2>
+            <p>{props.item.raum}</p>
+            <p>{props.item.dozent}</p>
+        </div>
     );
 }

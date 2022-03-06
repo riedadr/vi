@@ -10,16 +10,14 @@
         drop-shadow(0px -1px 0px var(--outline));
 }
 
-.dozent {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 .dozent .mantine-Button-root {
     padding-left: 1rem;
     padding-right: 1rem;
+    
 }
+
+
+
 .dozent .mantine-Button-inner {
     justify-content: left;
 }

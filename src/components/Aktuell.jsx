@@ -4,19 +4,18 @@ import { planDi } from "./stundenpläne/planDi";
 import { planMi } from "./stundenpläne/planMi";
 import { planDo } from "./stundenpläne/planDo";
 import { planFr } from "./stundenpläne/planFr";
-
-import Tag from "./Tag";
-import { Checkbox } from "@mantine/core";
+import AktuellerTag from "./AktuellerTag";
 
 export default function Aktuell() {
     const [loaded, setLoaded] = useState(false);
     const [currentList, setCurrentList] = useState([]);
+    const [dayNr, setDayNr] = useState();
     const [day, setDay] = useState();
-    const [checked, setChecked] = useState(false);
 
     useEffect(() => {
         const today = new Date();
         const weekday = today.getDay();
+        setDayNr(weekday);
         switch (weekday) {
             //Dienstag
             case 2:
@@ -44,6 +43,7 @@ export default function Aktuell() {
                 break;
             //Samstag (6), Sonntag (0), Montag (1)
             default:
+                setDayNr(1);
                 setDay("Montag");
                 setCurrentList(planMo);
                 setLoaded(true);
@@ -54,15 +54,9 @@ export default function Aktuell() {
         <>
             <h2 className="flex justify-between">
                 {day}
-                <Checkbox className="flex-row-reverse gap-4"
-                label="alle Gruppen"
-                    checked={checked}
-                    onChange={(event) =>
-                        setChecked(event.currentTarget.checked)
-                    }
-                />
+                
             </h2>
-            {loaded && <Tag list={currentList} showAll={checked}/>}
+            {loaded && <AktuellerTag list={currentList} weekday={dayNr}/>}
         </>
     );
 }
