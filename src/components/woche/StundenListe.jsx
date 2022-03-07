@@ -20,7 +20,7 @@ export default function StundenListe() {
                 mr={-16}
             >
                 <ul className="grid gap-6 mr-4">
-                    <li>
+                    <li className="border-b-2 border-solid border-zinc-500 pb-4">
                         <h2 className="flex justify-between">
                             Montag
                             <Checkbox
@@ -34,15 +34,15 @@ export default function StundenListe() {
                         </h2>
                         <Tag list={planMo} showAll={checked} />
                     </li>
-                    <li>
+                    <li className="border-b-2 border-solid border-zinc-500 pb-4">
                         <h2>Dienstag</h2>
                         <Tag list={planDi} showAll={checked} />
                     </li>
-                    <li>
+                    <li className="border-b-2 border-solid border-zinc-500 pb-4">
                         <h2>Mittwoch</h2>
                         <Tag list={planMi} showAll={checked} />
                     </li>
-                    <li>
+                    <li className="border-b-2 border-solid border-zinc-500 pb-4">
                         <h2>Donnerstag</h2>
                         <Tag list={planDo} showAll={checked} />
                     </li>

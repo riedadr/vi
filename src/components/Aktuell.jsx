@@ -11,52 +11,59 @@ export default function Aktuell() {
     const [currentList, setCurrentList] = useState([]);
     const [dayNr, setDayNr] = useState();
     const [day, setDay] = useState();
+    const week = [
+        "Sonntag",
+        "Montag",
+        "Dienstag",
+        "Mittwoch",
+        "Donnerstag",
+        "Freitag",
+        "Samstag",
+    ];
 
     useEffect(() => {
         const today = new Date();
-        const weekday = today.getDay();
+        let weekday = today.getDay();
+
+        //nach 17:15 wird der nächste Tag angezeigt
+        const h = today.getHours();
+        const m = today.getMinutes();
+        if (h * 60 + m >= 1035) weekday += 1;
+
         setDayNr(weekday);
         switch (weekday) {
             //Dienstag
             case 2:
-                setDay("Dienstag");
                 setCurrentList(planDi);
                 setLoaded(true);
                 break;
             //Mittwoch
             case 3:
-                setDay("Mittwoch");
                 setCurrentList(planMi);
                 setLoaded(true);
                 break;
             //Donnerstag
             case 4:
-                setDay("Donnerstag");
                 setCurrentList(planDo);
                 setLoaded(true);
                 break;
             //Freitag
             case 5:
-                setDay("Freitag");
                 setCurrentList(planFr);
                 setLoaded(true);
                 break;
             //Samstag (6), Sonntag (0), Montag (1)
             default:
                 setDayNr(1);
-                setDay("Montag");
                 setCurrentList(planMo);
                 setLoaded(true);
                 break;
         }
+        setDay(week[weekday]);
     }, []);
     return (
         <>
-            <h2 className="flex justify-between">
-                {day}
-                
-            </h2>
-            {loaded && <AktuellerTag list={currentList} weekday={dayNr}/>}
+            {loaded && <AktuellerTag list={currentList} weekday={dayNr} />}
         </>
     );
 }

@@ -52,7 +52,9 @@ export default function Tag(props) {
                             <p>{getTime(item.stunde)}</p>
                             <div className="bg-mantineBg rounded p-2">
                                 <h2 className="flex justify-between">
-                                    <span className="text-mantineAcc">{item.titel}</span>
+                                    <span className="text-mantineAcc">
+                                        {item.titel}
+                                    </span>
                                     {item.moodle && (
                                         <a
                                             href={item.moodle}
@@ -77,6 +79,7 @@ export default function Tag(props) {
                         </li>
                     );
                 }
+                return null;
             })}
         </ul>
     );

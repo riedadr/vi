@@ -9,7 +9,7 @@ import {
     faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Collapse } from "@mantine/core";
+import { Button, Collapse, Text } from "@mantine/core";
 import { useNotifications } from "@mantine/notifications";
 import React, { useState } from "react";
 import { listeDozenten } from "./listeDozenten";
@@ -53,15 +53,25 @@ function Dozent(props) {
                 className="btn-space-between bg-mantineFg rounded text-sm"
                 fullWidth
                 color="gray"
-                leftIcon={
-                    <img className="profile-pic my-2" src={props.item.bild} alt="" />
-                }
                 rightIcon={
                     <FontAwesomeIcon icon={opened ? faAngleUp : faAngleDown} />
                 }
                 onClick={() => setOpen((o) => !o)}
             >
-                {props.item.titel} {props.item.vorname} {props.item.nachname}
+                <div className="w-full flex items-center">
+                    <img
+                        className="profile-pic my-2"
+                        src={props.item.bild}
+                        alt=""
+                    />
+                    <div className="ml-3 text-left">
+                        <p>
+                            {props.item.titel} {props.item.vorname}{" "}
+                            {props.item.nachname}
+                        </p>
+                        <Text color="dimmed" size="xs" weight={500}>{props.item.fach}</Text>
+                    </div>
+                </div>
             </Button>
 
             <Collapse in={opened} className="mt-2 bg-mantineFg rounded">

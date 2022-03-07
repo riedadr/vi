@@ -10,12 +10,33 @@
         drop-shadow(0px -2px 0px var(--outline));
 }
 
-.notes .mantine-Modal-inner {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+.notes .mantine-RichTextEditor-toolbar {
+    max-height: 3.5rem;
 }
+
+.notes .mantine-RichTextEditor-toolbarInner {
+    max-height: 3rem;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    scrollbar-color: theme("colors.zinc.500") transparent;
+    scrollbar-width: thin;
+}
+.notes .mantine-RichTextEditor-toolbarGroup {
+    flex-wrap: nowrap;
+    
+}
+
+.notes .mantine-Modal-modal {
+    height: 100vh;
+}
+
+.notes .mantine-Modal-inner {
+    padding: 0;
+    height: 100vh;
+}
+
 .notes .ql-editor {
-    max-height: calc(100vh - 11rem);
+    height: calc(100vh - 9rem);
     overflow-y: scroll;
     scrollbar-color: theme("colors.zinc.500") transparent;
     scrollbar-width: thin;
@@ -24,8 +45,17 @@
     word-break: normal;
 }
 
+.notes ul li {
+    list-style-type: disc;
+}
+.notes ol li {
+    list-style-type: decimal;
+}
+
+
 .dozent .mantine-Button-root {
-    padding: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     height: 2.75rem;
 }
 
@@ -63,12 +93,12 @@
     padding: 0.5rem;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 768px) {
     .stundenTabelle {
         display: none;
     }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 768px) {
     .stundenListe {
         display: none;
     }

@@ -71,13 +71,13 @@ function App() {
                         position={{ top: 0, left: 0 }}
                         padding="md"
                         // Breakpoint at which navbar will be hidden if hidden prop is true
-                        hiddenBreakpoint="sm"
+                        hiddenBreakpoint="lg"
                         // Hides navbar when viewport size is less than value specified in hiddenBreakpoint
                         hidden={!showNav}
                         // when viewport size is less than theme.breakpoints.sm navbar width is 100%
                         // viewport size > theme.breakpoints.sm – width is 300px
                         // viewport size > theme.breakpoints.lg – width is 400px (lg: 400 )
-                        width={{ sm: 300 }}
+                        width={{ lg: 350 }}
                     >
                         <Navbar.Section className="mb-4">
                             <Select
@@ -141,8 +141,9 @@ function App() {
                             <Button
                                 color="yellow"
                                 onClick={() => toggleDisclaimer(true)}
+                                leftIcon={<FontAwesomeIcon icon={faCircleInfo} />}
                             >
-                                <FontAwesomeIcon icon={faCircleInfo} />
+                                Info
                             </Button>
                         </Navbar.Section>
                     </Navbar>
@@ -158,7 +159,7 @@ function App() {
                             }}
                         >
                             <MediaQuery
-                                largerThan="sm"
+                                largerThan="lg"
                                 styles={{ display: "none" }}
                             >
                                 <Burger

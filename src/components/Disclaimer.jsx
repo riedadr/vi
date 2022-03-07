@@ -29,12 +29,12 @@ export default function Disclaimer() {
                 </p>
                 <ul className="list-disc pl-6">
                     <li>
-                        <a href="https://www.hof-university.de/studierende/info-service/stundenplaene.html">
+                        <a href="https://www.hof-university.de/studierende/info-service/stundenplaene.html" target="_blank" rel="noreferrer">
                             Stundenpläne
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.hof-university.de/studieninteressierte/studienangebot/verwaltungsinformatik-dipl/dozenten.html">
+                        <a href="https://www.hof-university.de/studieninteressierte/studienangebot/verwaltungsinformatik-dipl/dozenten.html" target="_blank" rel="noreferrer">
                             Dozenten
                         </a>
                     </li>

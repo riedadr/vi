@@ -6,10 +6,10 @@ import { MediaQuery } from "@mantine/core";
 export default function Woche() {
     return (
         <>
-            <MediaQuery largerThan="lg" styles={{ display: "none" }}>
+            <MediaQuery largerThan="sm" styles={{ display: "none" }}>
                 <StundenListe />
             </MediaQuery>
-            <MediaQuery smallerThan="lg" styles={{ display: "none" }}>
+            <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                 <StundenTabelle />
             </MediaQuery>
         </>
