@@ -8,7 +8,7 @@ export function useGroup() {
 
 export function GroupProvider({ children }) {
     const [currentGroup, setCurrentGroup] = useState(
-        localStorage.group ? localStorage.group : "gr1"
+        localStorage.group ? localStorage.group : ""
     );
 
     function setGroup(gruppe) {

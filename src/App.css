@@ -1,25 +1,39 @@
 #hawLogo {
-    --outline: white;
-    filter: drop-shadow(1px 0px 0px var(--outline))
-        drop-shadow(-1px 0px 0px var(--outline))
-        drop-shadow(0px 1px 0px var(--outline))
-        drop-shadow(0px -1px 0px var(--outline));
-    -webkit-filter: drop-shadow(1px 0px 0px var(--outline))
-        drop-shadow(-1px 0px 0px var(--outline))
-        drop-shadow(0px 1px 0px var(--outline))
-        drop-shadow(0px -1px 0px var(--outline));
+    --outline: theme("colors.mantineFg");
+    filter: drop-shadow(2px 0px 0px var(--outline))
+        drop-shadow(-2px 0px 0px var(--outline))
+        drop-shadow(0px 2px 0px var(--outline))
+        drop-shadow(0px -2px 0px var(--outline));
+    -webkit-filter: drop-shadow(2px 0px 0px var(--outline))
+        drop-shadow(-2px 0px 0px var(--outline))
+        drop-shadow(0px 2px 0px var(--outline))
+        drop-shadow(0px -2px 0px var(--outline));
+}
+
+.notes .mantine-Modal-inner {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.notes .ql-editor {
+    max-height: calc(100vh - 11rem);
+    overflow-y: scroll;
+    scrollbar-color: theme("colors.zinc.500") transparent;
+    scrollbar-width: thin;
+}
+.notes .ql-action {
+    word-break: normal;
 }
 
 .dozent .mantine-Button-root {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    
+    padding: 0.5rem;
+    height: 2.75rem;
 }
 
-
-
-.dozent .mantine-Button-inner {
+.btn-text-left .mantine-Button-inner {
     justify-content: left;
+}
+.btn-space-between .mantine-Button-inner {
+    justify-content: space-between;
 }
 
 .dozent .profile-pic {

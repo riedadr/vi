@@ -49,21 +49,24 @@ function Dozent(props) {
 
     return (
         <li className="dozent mr-2">
-            <button
-                className="w-full flex gap-4 justify-between items-center"
+            <Button
+                className="btn-space-between bg-mantineFg rounded text-sm"
+                fullWidth
+                color="gray"
+                leftIcon={
+                    <img className="profile-pic my-2" src={props.item.bild} alt="" />
+                }
+                rightIcon={
+                    <FontAwesomeIcon icon={opened ? faAngleUp : faAngleDown} />
+                }
                 onClick={() => setOpen((o) => !o)}
             >
-                <div className="flex gap-4 items-center">
-                    <img className="profile-pic" src={props.item.bild} alt="" />
-                    {props.item.titel} {props.item.vorname}{" "}
-                    {props.item.nachname}
-                </div>
-
-                <FontAwesomeIcon icon={opened ? faAngleUp : faAngleDown} />
-            </button>
+                {props.item.titel} {props.item.vorname} {props.item.nachname}
+            </Button>
 
             <Collapse in={opened} className="mt-2 bg-mantineFg rounded">
                 <Button
+                    className="btn-text-left"
                     variant="subtle"
                     color="yellow"
                     component="a"
@@ -76,6 +79,7 @@ function Dozent(props) {
                 </Button>
                 <div className="flex justify-between dozent-info">
                     <Button
+                        className="btn-text-left"
                         variant="subtle"
                         fullWidth
                         component="a"
@@ -84,7 +88,10 @@ function Dozent(props) {
                         leftIcon={<FontAwesomeIcon icon={faEnvelope} />}
                     >
                         <p className="text-ellipsis">
-                            {props.item.email.substring(0, props.item.email.length - 18)}
+                            {props.item.email.substring(
+                                0,
+                                props.item.email.length - 18
+                            )}
                         </p>
                     </Button>
 
@@ -109,6 +116,7 @@ function Dozent(props) {
                 </div>
                 <div className="flex justify-between dozent-info">
                     <Button
+                        className="btn-text-left"
                         variant="subtle"
                         fullWidth
                         color="green"

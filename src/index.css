@@ -12,8 +12,14 @@ body {
   overflow: hidden;
 }
 
+h1 {
+  font-size: larger;
+}
 h2 {
   font-size: large;
+}
+h3 {
+  text-decoration: underline;
 }
 
 code {

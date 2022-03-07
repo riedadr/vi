@@ -10,6 +10,7 @@
     "@mantine/core": "^3.6.14",
     "@mantine/hooks": "^3.6.14",
     "@mantine/notifications": "^3.6.14",
+    "@mantine/rte": "^3.6.14",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
