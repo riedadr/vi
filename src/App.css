@@ -79,6 +79,13 @@
     padding-bottom: 16px;
 }
 
+.tab-content {
+    max-height: calc(100vh - (70px + 1rem + 40px + 10px + 1rem));
+    overflow-y: scroll;
+    scrollbar-color: theme("colors.zinc.500") transparent;
+    scrollbar-width: thin;
+}
+
 .stundenTabelle {
     display: grid;
     grid-auto-flow: column;

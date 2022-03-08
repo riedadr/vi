@@ -10,16 +10,6 @@ export default function Aktuell() {
     const [loaded, setLoaded] = useState(false);
     const [currentList, setCurrentList] = useState([]);
     const [dayNr, setDayNr] = useState();
-    const [day, setDay] = useState();
-    const week = [
-        "Sonntag",
-        "Montag",
-        "Dienstag",
-        "Mittwoch",
-        "Donnerstag",
-        "Freitag",
-        "Samstag",
-    ];
 
     useEffect(() => {
         const today = new Date();
@@ -59,11 +49,11 @@ export default function Aktuell() {
                 setLoaded(true);
                 break;
         }
-        setDay(week[weekday]);
     }, []);
     return (
-        <>
+        <div className="tab-content">
+
             {loaded && <AktuellerTag list={currentList} weekday={dayNr} />}
-        </>
+        </div>
     );
 }

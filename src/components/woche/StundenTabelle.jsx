@@ -11,7 +11,7 @@ import { planMo } from "../stundenpläne/planMo";
 //? Gibt die Stunden der Woche als Tabelle aus (für große Bildschirme)
 export default function StundenTabelle() {
     return (
-        <div className="stundenTabelle">
+        <div className="stundenTabelle tab-content">
             <div
                 className="stundenTabelle-item"
                 style={{ gridRow: 1, gridColumn: 1 }}

@@ -14,7 +14,7 @@ import {
     ScrollArea,
     Modal,
 } from "@mantine/core";
-import hawLogo from "./images/HAW-HOF.png";
+import viIcon from "./images/vi-icon.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faCalendarDay,
@@ -175,9 +175,8 @@ function App() {
                                 <Text size="xl">VI-Stundenplan</Text>
 
                                 <img
-                                    className="h-9"
-                                    id="hawLogo"
-                                    src={hawLogo}
+                                    className="h-10"
+                                    src={viIcon}
                                     alt=""
                                 />
                             </div>
