@@ -2,6 +2,8 @@ import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useGroup } from "../contexts/gruppe";
+import moodle from "../images/moodle.png"
+
 
 export default function Tag(props) {
     const { currentGroup } = useGroup();
@@ -61,7 +63,7 @@ export default function Tag(props) {
                                             target="_blank"
                                             rel="noreferrer"
                                         >
-                                            <FontAwesomeIcon icon={faLink} />
+                                            <img className="h-4" src={moodle} alt="moodle" />
                                         </a>
                                     )}
                                 </h2>

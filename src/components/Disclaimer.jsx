@@ -1,24 +1,49 @@
-import { faCircleInfo, faDownload } from "@fortawesome/free-solid-svg-icons";
+import {
+    faCircleInfo,
+    faDownload,
+    faUserGroup,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Text } from "@mantine/core";
+import { Button, Select, Text } from "@mantine/core";
 import React from "react";
+import { useGroup } from "../contexts/gruppe";
 import { usePWA } from "../contexts/pwa";
 
 export default function Disclaimer() {
     const { installPWA } = usePWA();
+    const { currentGroup, setGroup } = useGroup();
+
     return (
         <>
             {!localStorage.group && (
                 <div className="text-sm text-amber-500 mb-4">
                     <p>
-                        Damit der Stundenplan korrekt angezeigt wird, muss im Navigationsmenü
-                        zunächst eine Gruppe gewählt werden.
-                    </p>
-                    <p>
                         Dieses Fenster kann jederzeit über das{" "}
                         <FontAwesomeIcon icon={faCircleInfo} /> im
                         Navigationsmenü geöffnet werden.
                     </p>
+
+                    <Select
+                        className="mt-2"
+                        icon={<FontAwesomeIcon icon={faUserGroup} />}
+                        label={
+                            <div className="text-amber-500">
+                                <p>Bitte wähle deine Gruppe:</p>
+                                <p>
+                                    (diese kann später im Navigationsmenü
+                                    geändert werden)
+                                </p>
+                            </div>
+                        }
+                        placeholder="wähle eine Gruppe"
+                        value={currentGroup}
+                        onChange={setGroup}
+                        data={[
+                            { value: "gr1", label: "Gruppe I" },
+                            { value: "gr2", label: "Gruppe II" },
+                            { value: "gr3", label: "Gruppe III" },
+                        ]}
+                    />
                 </div>
             )}
             <div className="text-sm mb-4">
@@ -29,12 +54,20 @@ export default function Disclaimer() {
                 </p>
                 <ul className="list-disc pl-6">
                     <li>
-                        <a href="https://www.hof-university.de/studierende/info-service/stundenplaene.html" target="_blank" rel="noreferrer">
+                        <a
+                            href="https://www.hof-university.de/studierende/info-service/stundenplaene.html"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Stundenpläne
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.hof-university.de/studieninteressierte/studienangebot/verwaltungsinformatik-dipl/dozenten.html" target="_blank" rel="noreferrer">
+                        <a
+                            href="https://www.hof-university.de/studieninteressierte/studienangebot/verwaltungsinformatik-dipl/dozenten.html"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             Dozenten
                         </a>
                     </li>

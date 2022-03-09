@@ -6,6 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Timeline, TimelineItem } from "@mantine/core";
 import React, { useState, useEffect } from "react";
+import moodle from "../images/moodle.png"
 import { useGroup } from "../contexts/gruppe";
 import { planMo } from "./stundenpläne/planMo";
 import { planDi } from "./stundenpläne/planDi";
@@ -69,6 +70,11 @@ export default function AktuellerTag(props) {
 
     const getTimeMinutes = (stunde) => {
         let minutes = 0;
+
+        //wenn nicht der aktuelle Tag angezeigt wird, wird als aktuelle Zeit 0 zurückgegeben
+        let now = new Date();
+        let d = now.getDay();
+        if(weekday != d) return 9999;
 
         switch (stunde) {
             case 1:
@@ -181,9 +187,7 @@ export default function AktuellerTag(props) {
                                                 target="_blank"
                                                 rel="noreferrer"
                                             >
-                                                <FontAwesomeIcon
-                                                    icon={faLink}
-                                                />
+                                                <img className="h-4" src={moodle} alt="moodle" />
                                             </a>
                                         )}
                                     </h2>

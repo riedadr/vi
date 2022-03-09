@@ -112,7 +112,9 @@ function App() {
                                 className="btn-text-left"
                                 fullWidth
                                 leftIcon={<FontAwesomeIcon icon={faPencil} />}
-                                onClick={() => toggleNotes(true)}
+                                onClick={() => {
+                                    toggleNotes(true);
+                                }}
                             >
                                 Notizen
                             </Button>
@@ -141,7 +143,9 @@ function App() {
                             <Button
                                 color="yellow"
                                 onClick={() => toggleDisclaimer(true)}
-                                leftIcon={<FontAwesomeIcon icon={faCircleInfo} />}
+                                leftIcon={
+                                    <FontAwesomeIcon icon={faCircleInfo} />
+                                }
                             >
                                 Info
                             </Button>
@@ -174,11 +178,7 @@ function App() {
                             <div className="flex justify-between w-full items-center">
                                 <Text size="xl">VI-Stundenplan</Text>
 
-                                <img
-                                    className="h-10"
-                                    src={viIcon}
-                                    alt=""
-                                />
+                                <img className="h-10" src={viIcon} alt="" />
                             </div>
                         </div>
                     </Header>

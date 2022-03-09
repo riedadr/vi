@@ -7,6 +7,8 @@ import { planDo } from "../stundenpläne/planDo";
 import { planFr } from "../stundenpläne/planFr";
 import { planMi } from "../stundenpläne/planMi";
 import { planMo } from "../stundenpläne/planMo";
+import moodle from "../../images/moodle.png"
+
 
 //? Gibt die Stunden der Woche als Tabelle aus (für große Bildschirme)
 export default function StundenTabelle() {
@@ -115,7 +117,7 @@ function Fach(props) {
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <FontAwesomeIcon icon={faLink} />
+                        <img className="h-4" src={moodle} alt="moodle" />
                     </a>
                 )}
             </h2>
