@@ -40,7 +40,7 @@ export const listeDozenten = [
         tel: "+49 (0) 9281 / 409 4407"
     },
     {
-        titel: "M.Sc.",
+        titel: "M. Sc.",
         vorname: "Christian",
         nachname: "Schaller",
         fach: "Web-Development I",

@@ -6,6 +6,7 @@ import {
     faCopy,
     faEnvelope,
     faExclamation,
+    faMagnifyingGlass,
     faPhone,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,12 +16,69 @@ import React, { useState } from "react";
 import { listeDozenten } from "./listeDozenten";
 
 export default function Dozenten() {
+    const [name, setName] = useState("");
+
+    // the search result
+    const [foundUsers, setFoundUsers] = useState(listeDozenten);
+
+    const filter = (e) => {
+        const keyword = e.target.value;
+
+        if (keyword !== "") {
+            const results = listeDozenten.filter((user) => {
+                return (
+                    user.fach +
+                    user.titel +
+                    user.vorname +
+                    user.nachname +
+                    user.email +
+                    user.tel
+                )
+                    .toLowerCase()
+                    .includes(keyword.toLowerCase());
+                // Use the toLowerCase() method to make it case-insensitive
+            });
+            setFoundUsers(results);
+        } else {
+            setFoundUsers(listeDozenten);
+            // If the text field is empty, show all users
+        }
+
+        setName(keyword);
+    };
     return (
         <>
+            <div className="mb-2 pr-1.5">
+                <div className="border-b-2 border-solid border-mantineFg flex justify-between gap-4">
+                    <input
+                        type="search"
+                        value={name}
+                        onChange={filter}
+                        className="w-full bg-mantineBg"
+                        placeholder="Dozenten"
+                    />
+                    <Text className="pr-1" size="sm" color="dimmed">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </Text>
+                </div>
+            </div>
+
             <ul className="grid gap-4">
-                {listeDozenten.map((item, index) => {
-                    return <Dozent key={index} item={item} />;
-                })}
+                {foundUsers && foundUsers.length > 0 ? (
+                    foundUsers
+                        .sort((a, b) =>
+                            a.nachname + a.vorname > b.nachname + b.vorname
+                                ? 1
+                                : -1
+                        )
+                        .map((item, index) => (
+                            <Dozent key={index} item={item} />
+                        ))
+                ) : (
+                    <Text size="sm" color="dimmed">
+                        Es wurde kein Dozent gefunden!
+                    </Text>
+                )}
             </ul>
         </>
     );
@@ -30,11 +88,14 @@ function Dozent(props) {
     const [opened, setOpen] = useState(false);
     const notifications = useNotifications();
 
+    //? Benachrichtungen beim Kopieren der Daten
     const showSuccess = (content) =>
         notifications.showNotification({
             title: "Kopieren erfolgreich",
             message:
-                content + " wurde erfolgreich in die Zwischenablage kopiert",
+                "'" +
+                content +
+                "' wurde erfolgreich in die Zwischenablage kopiert",
             color: "teal",
             icon: <FontAwesomeIcon icon={faCheck} />,
         });
@@ -42,7 +103,12 @@ function Dozent(props) {
     const showError = (err, content) =>
         notifications.showNotification({
             title: "Kopieren fehlgeschlage!",
-            message: content + " konnte nicht kopiert werden: \n" + err,
+            message: (
+                <>
+                    <p>'{content}' konnte nicht kopiert werden:</p>
+                    <p>{err}</p>
+                </>
+            ),
             color: "red",
             icon: <FontAwesomeIcon icon={faExclamation} />,
         });
@@ -69,7 +135,9 @@ function Dozent(props) {
                             {props.item.titel} {props.item.vorname}{" "}
                             {props.item.nachname}
                         </p>
-                        <Text color="dimmed" size="xs" weight={500}>{props.item.fach}</Text>
+                        <Text color="dimmed" size="xs" weight={500}>
+                            {props.item.fach}
+                        </Text>
                     </div>
                 </div>
             </Button>

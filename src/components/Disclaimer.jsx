@@ -80,10 +80,11 @@ export default function Disclaimer() {
             <div className="text-sm">
                 <h3 className="text-base">PWA</h3>
                 <p>
-                    Diese Seite ist eine PWA. Sie kann also wie eine App auf
+                    Diese Seite ist eine PWA. Sie kann also (abhängig vom Browser) wie eine App auf
                     deinem Gerät installiert werden und ist somit auch offline
                     verfügbar.
                 </p>
+                <p>Eine Übersicht unterstützter Browser findest du <a className="text-mantineAcc underline" href="https://caniuse.com/web-app-manifest" target="_blank" rel="noreferrer">hier</a>.</p>
                 <Button
                     className="mt-2 mb-8"
                     fullWidth

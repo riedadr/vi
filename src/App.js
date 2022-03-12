@@ -23,6 +23,7 @@ import {
     faEnvelope,
     faPencil,
     faUserGroup,
+    faUtensils,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Aktuell from "./components/Aktuell";
@@ -31,6 +32,7 @@ import { useGroup } from "./contexts/gruppe";
 import Dozenten from "./components/dozenten/Dozenten";
 import Disclaimer from "./components/Disclaimer";
 import Notizen from "./components/Notizen";
+import Links from "./components/links/Links";
 
 function App() {
     const { currentGroup, setGroup } = useGroup();
@@ -82,7 +84,9 @@ function App() {
                         <Navbar.Section className="mb-4">
                             <Select
                                 icon={<FontAwesomeIcon icon={faUserGroup} />}
-                                label="Deine Gruppe"
+                                label={<Text color="dimmed">
+                                Deine Gruppe
+                            </Text>}
                                 placeholder="wähle eine Gruppe"
                                 value={currentGroup}
                                 onChange={setGroup}
@@ -95,7 +99,7 @@ function App() {
                         </Navbar.Section>
 
                         {/* Grow section will take all available space that is not taken by first and last sections */}
-                        <h2 className="mb-4">Dozenten</h2>
+                        
                         <Navbar.Section
                             grow
                             component={ScrollArea}
@@ -107,7 +111,7 @@ function App() {
                             <Dozenten />
                         </Navbar.Section>
 
-                        <Navbar.Section className="mb-4">
+                        <Navbar.Section className="pt-2 grid gap-2">
                             <Button
                                 className="btn-text-left"
                                 fullWidth
@@ -118,10 +122,24 @@ function App() {
                             >
                                 Notizen
                             </Button>
+                            <Button
+                                component="a"
+                                href="https://www.studentenwerk-oberfranken.de/essen/speiseplaene/hof.html"
+                                target="_blank"
+                                className="btn-text-left"
+                                fullWidth
+                                leftIcon={<FontAwesomeIcon icon={faUtensils} />}
+                            >
+                                Mensa
+                            </Button>
+                        </Navbar.Section>
+
+                        <Navbar.Section className="mb-2">
+                            <Links />
                         </Navbar.Section>
 
                         {/* Last section with normal height (depends on section content) */}
-                        <Navbar.Section className="w-full flex justify-between mt-4 pt-4 border-t-2 border-solid border-mantineFg">
+                        <Navbar.Section className="w-full flex justify-between pt-4 border-t-2 border-solid border-mantineFg">
                             <Button
                                 color="orange"
                                 component="a"

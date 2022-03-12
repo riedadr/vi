@@ -1,4 +1,4 @@
-import { faExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faExclamation, faCircleQuestion } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNotifications } from "@mantine/notifications";
 import React, { createContext, useContext, useState, useEffect } from "react";
@@ -19,7 +19,6 @@ export function PWAProvider({ children }) {
         try {
             const handler = (e) => {
                 e.preventDefault();
-                console.log("we are being triggered :D");
                 setSupportsPWA(true);
                 setPromptInstall(e);
             };
@@ -39,10 +38,9 @@ export function PWAProvider({ children }) {
             }
             promptInstall.prompt();
         } else {
-            console.log("PWA not supported!");
             notifications.showNotification({
                 title: "Installation nicht möglich!",
-                message: "Manche Browser (Firefox) untersützten PWAs nicht. Möglicherweise ist die PWA auch bereits installiert",
+                message: <><p>Manche Browser (Firefox) untersützten PWAs nicht. <a href="https://caniuse.com/web-app-manifest" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faCircleQuestion} /></a></p><p>Möglicherweise ist die PWA auch bereits installiert</p></>,
                 color: "red",
                 icon: <FontAwesomeIcon icon={faExclamation} />,
             });
