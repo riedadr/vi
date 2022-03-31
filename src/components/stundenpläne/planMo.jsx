@@ -32,9 +32,9 @@ export const planMo = [
         stunde: 4,
         titel: "Rechnernetzwerke II",
         kurz: "RN2",
-        raum: "G023b",
+        raum: "B007/009",
         dozent: "Dipl.-Inf. Stefan Müller",
-        moodle: "https://moodle.hof-university.de/course/view.php?id=4261",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4565",
         gruppe: alle,
     },
     {

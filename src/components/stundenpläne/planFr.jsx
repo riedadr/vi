@@ -7,7 +7,7 @@ export const planFr = [
         kurz: "BS2 - Ü2",
         raum: "D242",
         dozent: "Prof. Dr. Tilo Müller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4544",
         gruppe: "gr2",
     },
     {
@@ -16,7 +16,7 @@ export const planFr = [
         kurz: "BS2 - Ü3",
         raum: "D242",
         dozent: "Prof. Dr. Tilo Müller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4544",
         gruppe: "gr3",
     },
     {

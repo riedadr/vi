@@ -7,7 +7,7 @@ export const planDi = [
         kurz: "WebDev",
         raum: "B109",
         dozent: "M. Sc. Christian Schaller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=3687",
         gruppe: alle,
     },
     {
@@ -16,7 +16,7 @@ export const planDi = [
         kurz: "WebDev - Ü3",
         raum: "B004a",
         dozent: "M. Sc. Christian Schaller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=3687",
         gruppe: "gr3",
     },
     {

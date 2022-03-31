@@ -45,7 +45,7 @@ function App() {
     const theme = useMantineTheme();
 
     return (
-        <div className="text-black bg-white dark:text-white dark:bg-zinc-800">
+        <div className="text-white bg-zinc-800">
             <Modal
                 opened={disclaimer}
                 onClose={() => toggleDisclaimer(false)}

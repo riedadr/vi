@@ -47,6 +47,10 @@ export default function Disclaimer() {
                 </div>
             )}
             <div className="text-sm mb-4">
+                <p className="text-red-500 mb-4">
+                    Es werden keine Stundenplanänderungen angezeigt!
+                </p>
+
                 <h3 className="text-base">Datenquellen</h3>
                 <p>
                     Alle Daten und Informationen auf dieser Seite sind
@@ -80,11 +84,22 @@ export default function Disclaimer() {
             <div className="text-sm">
                 <h3 className="text-base">PWA</h3>
                 <p>
-                    Diese Seite ist eine PWA. Sie kann also (abhängig vom Browser) wie eine App auf
-                    deinem Gerät installiert werden und ist somit auch offline
-                    verfügbar.
+                    Diese Seite ist eine PWA. Sie kann also (abhängig vom
+                    Browser) wie eine App auf deinem Gerät installiert werden
+                    und ist somit auch offline verfügbar.
                 </p>
-                <p>Eine Übersicht unterstützter Browser findest du <a className="text-mantineAcc underline" href="https://caniuse.com/web-app-manifest" target="_blank" rel="noreferrer">hier</a>.</p>
+                <p>
+                    Eine Übersicht unterstützter Browser findest du{" "}
+                    <a
+                        className="text-mantineAcc underline"
+                        href="https://caniuse.com/web-app-manifest"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        hier
+                    </a>
+                    .
+                </p>
                 <Button
                     className="mt-2 mb-8"
                     fullWidth

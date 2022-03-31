@@ -7,16 +7,16 @@ export const planDo = [
         kurz: "BS2",
         raum: "G023b",
         dozent: "Prof. Dr. Tilo Müller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4544",
         gruppe: alle,
     },
     {
         stunde: 2,
         titel: "Rechnernetzwerke II",
         kurz: "RN2",
-        raum: "G023b",
+        raum: "B023",
         dozent: "Dipl.-Inf. Stefan Müller",
-        moodle: "https://moodle.hof-university.de/course/view.php?id=4261",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4565",
         gruppe: alle,
     },
     {
@@ -25,7 +25,7 @@ export const planDo = [
         kurz: "BS2 - Ü1",
         raum: "D242",
         dozent: "Prof. Dr. Tilo Müller",
-        moodle: "",
+        moodle: "https://moodle.hof-university.de/course/view.php?id=4544",
         gruppe: "gr1",
     },
     {
