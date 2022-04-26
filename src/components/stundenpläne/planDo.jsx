@@ -41,7 +41,7 @@ export const planDo = [
         stunde: 4,
         titel: "Algorithmen und Datenstrukturen",
         kurz: "AlgoDat",
-        raum: "G023b",
+        raum: "B023",
         dozent: "Prof. Dr. Peter Stöhr",
         moodle: "https://moodle.hof-university.de/course/view.php?id=4326",
         gruppe: alle,
